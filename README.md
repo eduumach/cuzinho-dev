@@ -19,6 +19,7 @@ Tem versão em inglês também (seletor **PT / EN** na navbar ou `?lang=en`), po
 | **Mensagem de Commit** | `/commit` | `fix: agora vai`. Com modo sexta, que já vem com `--force`. |
 | **Bingo da Daily** | `/bingo` | Cartela 5×5 pra marcar durante a reunião. Fica salva no navegador. |
 | **Certificado** | `/certificado` | Certificado oficial de quem entrega no cuzinho, com imagem pra postar no X. |
+| **Modo Agente** | `/agente` | Sessões de agente de IA apagando banco, dando `--force` na main e pedindo desculpas. Cada uma tem link próprio (`/agente#s4`). |
 
 A home ainda tem o contador regressivo pra sexta 17:59 e o axioma do dia, que é o mesmo pra todo mundo.
 
@@ -66,6 +67,7 @@ Então, se adicionar um axioma no fim de `AXIOMS` em `data.ts`, adicione a vers�
 | `COMPLIMENTS` | `[setup, punchline, tag]`, com tag `classico`, `review` ou `feedback` |
 | `COMMITS` | mensagens de commit |
 | `BINGO` | frases da cartela |
+| `AGENT` | `[título, linhas]` das sessões do modo agente; cada linha é `user`, `ai` ou `tool` |
 
 Algumas dicas:
 

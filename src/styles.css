@@ -230,3 +230,14 @@ body.panic .skyline i{border-color:var(--hot)}
 .tier[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .tier[aria-pressed=true]>span{color:var(--mute)}
 @media (max-width:720px){.donate{grid-template-columns:1fr}.qr{max-width:260px}}
+
+/* modo agente */
+.agent{background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:clamp(12px,1.5vw,14px);line-height:1.55;padding:clamp(16px,3vw,28px);min-height:340px;display:grid;align-content:start;gap:16px;min-width:0}
+.agent .ln{display:grid;grid-template-columns:18px minmax(0,1fr);white-space:pre-wrap;overflow-wrap:anywhere;animation:punch .3s both}
+.agent .user{color:var(--dark-soft)}
+.agent .p{color:var(--dark-soft)}
+.agent .bullet::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--bg);vertical-align:1px}
+.agent .tool .bullet::before{background:var(--hot)}
+.agent .tool b{font-weight:600}
+.agent .out{display:block;color:var(--dark-soft);padding-left:2px}
+.agent .cursor{color:var(--hot);animation:blink 1s steps(2) infinite}

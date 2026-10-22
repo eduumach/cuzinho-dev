@@ -73,7 +73,7 @@ export default function Patrocine() {
   const [method, setMethod] = useState<Method | undefined>(() => (lang === 'en' && METHODS.find(m => m === 'kofi')) || METHODS[0])
   const [amount, setAmount] = useState<number | undefined>(17.59)
 
-  const head = <PageHead n="08" label={t.label} aside={t.aside} title={t.head} mute={t.mute} sub={t.sub} />
+  const head = <PageHead n="09" label={t.label} aside={t.aside} title={t.head} mute={t.mute} sub={t.sub} />
 
   if (!method) return <section><div className="wrap">{head}<p className="sub">{t.empty}</p></div></section>
 

@@ -18,6 +18,7 @@ const PAGES = [
   { to: '/commit', art: [90, 20, 60, 40] },
   { to: '/bingo', art: [50, 50, 50, 50] },
   { to: '/certificado', art: [40, 75, 40, 100] },
+  { to: '/agente', art: [100, 70, 35, 5] },
 ]
 
 const T = translations(
@@ -35,6 +36,7 @@ const T = translations(
       { k: 'Gerador', title: 'Mensagem de Commit', text: 'fix: agora vai. Com modo sexta, que já vem com --force.' },
       { k: 'Jogo', title: 'Bingo da Daily', text: 'Marque cada "dá pra ver rapidinho?" e grite bingo no meio da reunião.' },
       { k: 'Oficial', title: 'Certificado', text: 'Comprove que você entrega. No cuzinho, mas entrega. E poste no X.' },
+      { k: 'Terminal', title: 'Modo Agente', text: 'Deixa que a IA resolve. Ela resolveu, e ainda pediu desculpas.' },
     ],
     heroTag: 'Obra nº 001 · Metodologia No Cuzinho',
     version: 'v0.0.1-rc-final-agora-vai',
@@ -48,7 +50,7 @@ const T = translations(
     toolsLabel: 'Ferramentas',
     toolsTitle: 'Tudo pra sobreviver',
     toolsMute: 'até sexta.',
-    toolsSub: 'Sete ferramentas testadas em produção. Nenhuma em homologação.',
+    toolsSub: 'Oito ferramentas testadas em produção. Nenhuma em homologação.',
     badgeTitle: 'Placa da obra',
     badgeMute: 'pro seu README.',
     badgeSub: 'Avise a comunidade que o seu repositório segue a metodologia.',
@@ -69,6 +71,7 @@ const T = translations(
       { k: 'Generator', title: 'Commit Message', text: 'fix: should work now. With Friday mode, --force included.' },
       { k: 'Game', title: 'Standup Bingo', text: 'Mark every “got a sec?” and yell bingo mid-meeting.' },
       { k: 'Official', title: 'Certificate', text: 'Prove that you ship. At the last second, but you ship. Then post it on X.' },
+      { k: 'Terminal', title: 'Agent Mode', text: 'Let the AI handle it. It handled it, and it apologized too.' },
     ],
     heroTag: 'Build #001 · No Cuzinho Methodology',
     version: 'v0.0.1-rc-final-for-real-this-time',
@@ -82,7 +85,7 @@ const T = translations(
     toolsLabel: 'Tools',
     toolsTitle: 'Everything you need to survive',
     toolsMute: 'until Friday.',
-    toolsSub: 'Seven tools tested in production. None in staging.',
+    toolsSub: 'Eight tools tested in production. None in staging.',
     badgeTitle: 'README badge',
     badgeMute: 'for your repo.',
     badgeSub: 'Let the community know your repository follows the methodology.',

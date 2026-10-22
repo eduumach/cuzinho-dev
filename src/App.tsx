@@ -13,6 +13,7 @@ import Elogios from './pages/Elogios'
 import Commit from './pages/Commit'
 import Bingo from './pages/Bingo'
 import Certificado from './pages/Certificado'
+import Agente from './pages/Agente'
 import Patrocine from './pages/Patrocine'
 import NotFound from './pages/NotFound'
 
@@ -25,14 +26,15 @@ const ROUTES: Record<string, ComponentType> = {
   '/commit': Commit,
   '/bingo': Bingo,
   '/certificado': Certificado,
+  '/agente': Agente,
   '/patrocine': Patrocine,
 }
 
-const NAV = ['/manifesto', '/tradutor', '/desculpas', '/elogios', '/commit', '/bingo', '/certificado']
+const NAV = ['/manifesto', '/tradutor', '/desculpas', '/elogios', '/commit', '/bingo', '/certificado', '/agente']
 
 const T = translations(
   {
-    nav: ['Manifesto', 'Tradutor', 'Desculpas', 'Elogios', 'Commit', 'Bingo', 'Certificado'],
+    nav: ['Manifesto', 'Tradutor', 'Desculpas', 'Elogios', 'Commit', 'Bingo', 'Certificado', 'Agente'],
     navLabel: 'Principal',
     langLabel: 'Idioma',
     panic: 'Deployando, não mexe',
@@ -42,7 +44,7 @@ const T = translations(
     sponsor: 'Financie o próximo deploy de sexta',
   },
   {
-    nav: ['Manifesto', 'Translator', 'Excuses', 'Compliments', 'Commit', 'Bingo', 'Certificate'],
+    nav: ['Manifesto', 'Translator', 'Excuses', 'Compliments', 'Commit', 'Bingo', 'Certificate', 'Agent'],
     navLabel: 'Main',
     langLabel: 'Language',
     panic: 'Deploying, don’t touch',

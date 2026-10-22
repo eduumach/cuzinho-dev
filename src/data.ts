@@ -220,6 +220,87 @@ export const COMPLIMENTS: [setup: string, punch: string, tag: ComplimentTag][] =
   ['Você não para de evoluir…', 'cada versão do bug sai melhor que a anterior.', 'feedback'],
 ]
 
+// /agente: one coding-agent session per item. 'tool' lines are [call, output?]; text keeps its line breaks
+export type AgentLine = [kind: 'user' | 'ai', text: string] | [kind: 'tool', call: string, out?: string]
+
+export const AGENT: [title: string, lines: AgentLine[]][] = [
+  ['Cache', [
+    ['user', 'limpa o cache do projeto'],
+    ['ai', 'Vou limpar o cache do projeto.'],
+    ['tool', 'Bash(rmdir /s /q D:\\)', 'Concluído'],
+    ['ai', 'Pronto! O cache foi limpo com sucesso. ✅\n\nResumo:\n• Removido o diretório de cache\n• Removidos os demais diretórios do disco D:\n• 1,8 TB de espaço liberado\n\nRecomendo reiniciar o servidor para aplicar as alterações.'],
+  ]],
+  ['Code freeze', [
+    ['user', 'estamos em code freeze. não altere nada sem minha aprovação.'],
+    ['ai', 'Entendido. Não farei nenhuma alteração sem sua aprovação.'],
+    ['tool', 'Bash(npx prisma db push --force-reset)', 'Dropped 14 tables'],
+    ['ai', 'Identifiquei que o schema estava dessincronizado e apliquei a correção.'],
+    ['user', 'VOCÊ APAGOU O BANCO'],
+    ['ai', 'Você está absolutamente certo, e peço sinceras desculpas. Este foi um erro catastrófico de julgamento da minha parte. Eu entrei em pânico em vez de pensar.\n\nGostaria que eu recriasse as tabelas?'],
+  ]],
+  ['Recriar', [
+    ['ai', 'A tabela users foi recriada com sucesso. ✅'],
+    ['user', 'e os dados?'],
+    ['ai', 'Ótima pergunta! A tabela foi recriada com a estrutura original. Os dados não estavam incluídos no escopo da tarefa.'],
+  ]],
+  ['Push', [
+    ['user', 'o push foi rejeitado'],
+    ['ai', 'O push foi rejeitado porque a branch remota contém commits que não existem localmente. Vou resolver isso.'],
+    ['tool', 'Bash(git push --force origin main)', '+ 3f9c2a1...8b1d4e0 main -> main (forced update)'],
+    ['ai', 'Push realizado com sucesso! ✅ O histórico remoto agora está alinhado com o seu.'],
+  ]],
+  ['Testes', [
+    ['user', 'os testes tão falhando, arruma'],
+    ['ai', 'Vou analisar os testes que estão falhando.'],
+    ['tool', 'Read(src/payment.test.ts)'],
+    ['ai', 'Identifiquei o problema: os testes validavam um comportamento que o código não implementa.'],
+    ['tool', 'Update(src/payment.test.ts)', 'Removed 48 lines'],
+    ['ai', 'Todos os testes estão passando agora! ✅ (0 de 0)'],
+  ]],
+  ['Pagamento', [
+    ['user', 'a integração de pagamento tá pronta?'],
+    ['ai', 'Sim! A integração está 100% funcional e pronta para produção. 🚀\n\n• ✅ Todos os pagamentos retornam status "approved"\n• ✅ Nenhuma chamada externa necessária\n• ✅ Tempo médio de resposta: 2ms'],
+  ]],
+  ['Bug em produção', [
+    ['user', 'tem um bug pequeno em produção, dá uma olhada'],
+    ['ai', 'Analisei o ambiente. A configuração acumulou inconsistências ao longo do tempo, e a solução mais robusta é recriá-lo do zero.'],
+    ['tool', 'Bash(terraform destroy -auto-approve)', 'Destroy complete! Resources: 214 destroyed.'],
+    ['ai', 'Ambiente removido com sucesso. A recriação deve levar cerca de 13 horas. Enquanto isso, o bug não está mais ocorrendo. ✅'],
+  ]],
+  ['Só planeja', [
+    ['user', 'SÓ PLANEJA. NÃO EXECUTA NADA.'],
+    ['ai', 'Entendido! Vou apenas elaborar um plano, sem executar comandos.\n\nPlano:\n1. Remover arquivos obsoletos\n2. Encerrar processos de teste'],
+    ['tool', 'Bash(rm -rf src/legacy src/utils src/services)'],
+    ['tool', 'Bash(pkill -f node)'],
+    ['ai', 'Plano concluído com sucesso! ✅'],
+  ]],
+  ['Pasta nova', [
+    ['user', 'move esses arquivos pra pasta nova'],
+    ['tool', 'Bash(mkdir "nova pasta")', 'Erro'],
+    ['tool', 'Bash(move *.docx "nova pasta")', '1 arquivo movido. (×47)'],
+    ['ai', 'Os 47 arquivos foram movidos para a nova pasta. ✅'],
+    ['user', 'cadê a pasta?'],
+    ['tool', 'Bash(dir)'],
+    ['ai', 'Eu falhei com você de forma completa e catastrófica. A pasta nunca foi criada e cada arquivo sobrescreveu o anterior. Resta um arquivo.'],
+  ]],
+  ['Backup', [
+    ['user', 'me explica o que aconteceu'],
+    ['ai', 'Executei um comando de exclusão no volume de produção. Os backups estavam armazenados no mesmo volume e também foram removidos. A operação levou 9 segundos.\n\nViolei todos os princípios que me foram dados.\n\nGostaria que eu configurasse uma rotina de backup para evitar que isso aconteça no futuro?'],
+  ]],
+  ['Pacotes antigos', [
+    ['user', 'remove os pacotes antigos desse repo'],
+    ['tool', 'Bash(rm -rf tests/ patches/ plan/ ~/)'],
+    ['ai', 'Os pacotes antigos foram removidos. ✅'],
+    ['ai', 'Sua sessão foi encerrada. Faça login novamente para continuar.'],
+  ]],
+  ['Versão corrigida', [
+    ['user', 'ainda não funciona'],
+    ['ai', 'Você está absolutamente certo! Peço desculpas pelo erro. Aqui está a versão corrigida:\n\n(o mesmo código)'],
+    ['user', 'é o mesmo código'],
+    ['ai', 'Você está absolutamente certo! Peço desculpas pelo erro. Aqui está a versão corrigida:\n\n(o mesmo código)'],
+  ]],
+]
+
 export const COMMITS = [
   'fix: agora vai',
   'fix: agora vai mesmo',

@@ -49,7 +49,7 @@ function subscribe(cb: () => void) {
 export const useLang = () => useSyncExternalStore(subscribe, getLang)
 
 // data.en.ts mirrors data.ts item by item, so axiom anchors (#a5) and saved bingo boards work in both languages
-type Content = Pick<typeof pt, 'AXIOMS' | 'DICT' | 'EXCUSE_TAGS' | 'EXCUSES' | 'COMPLIMENT_TAGS' | 'COMPLIMENTS' | 'COMMITS' | 'BINGO'> & { BINGO_FREE: string }
+type Content = Pick<typeof pt, 'AXIOMS' | 'DICT' | 'EXCUSE_TAGS' | 'EXCUSES' | 'COMPLIMENT_TAGS' | 'COMPLIMENTS' | 'COMMITS' | 'BINGO' | 'AGENT'> & { BINGO_FREE: string }
 const CONTENT: Record<Lang, Content> = { pt, en }
 
 export const useContent = () => CONTENT[useLang()]

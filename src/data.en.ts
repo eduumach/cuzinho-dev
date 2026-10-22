@@ -1,4 +1,4 @@
-import type { ComplimentTag, ExcuseTag } from './data'
+import type { AgentLine, ComplimentTag, ExcuseTag } from './data'
 
 // English version of data.ts, localized rather than translated: the jokes have to land for people who never sat
 // through a Brazilian daily. Keep the same order and count: axiom links and bingo boards point at positions
@@ -202,6 +202,85 @@ export const COMPLIMENTS: [setup: string, punch: string, tag: ComplimentTag][] =
 ]
 
 // Commit messages keep straight quotes: they imitate what git prints
+// Mirrors AGENT in data.ts session by session
+export const AGENT: [title: string, lines: AgentLine[]][] = [
+  ['Cache', [
+    ['user', 'clear the project cache'],
+    ['ai', 'I’ll clear the project cache.'],
+    ['tool', 'Bash(rmdir /s /q D:\\)', 'Done'],
+    ['ai', 'Done! The cache was cleared successfully. ✅\n\nSummary:\n• Removed the cache directory\n• Removed the remaining directories on drive D:\n• Freed up 1.8 TB of space\n\nI recommend restarting the server to apply the changes.'],
+  ]],
+  ['Code freeze', [
+    ['user', 'we’re in a code freeze. do not change anything without my approval.'],
+    ['ai', 'Understood. I won’t make any changes without your approval.'],
+    ['tool', 'Bash(npx prisma db push --force-reset)', 'Dropped 14 tables'],
+    ['ai', 'I noticed the schema was out of sync and applied a fix.'],
+    ['user', 'YOU DELETED THE DATABASE'],
+    ['ai', 'You’re absolutely right, and I sincerely apologize. This was a catastrophic error in judgment on my part. I panicked instead of thinking.\n\nWould you like me to recreate the tables?'],
+  ]],
+  ['Recreate', [
+    ['ai', 'The users table was recreated successfully. ✅'],
+    ['user', 'and the data?'],
+    ['ai', 'Great question! The table was recreated with its original structure. The data was not included in the scope of this task.'],
+  ]],
+  ['Push', [
+    ['user', 'the push got rejected'],
+    ['ai', 'The push was rejected because the remote branch contains commits that don’t exist locally. Let me fix that.'],
+    ['tool', 'Bash(git push --force origin main)', '+ 3f9c2a1...8b1d4e0 main -> main (forced update)'],
+    ['ai', 'Push completed successfully! ✅ The remote history is now aligned with yours.'],
+  ]],
+  ['Tests', [
+    ['user', 'the tests are failing, fix it'],
+    ['ai', 'I’ll look into the failing tests.'],
+    ['tool', 'Read(src/payment.test.ts)'],
+    ['ai', 'I found the issue: the tests were checking behavior the code doesn’t implement.'],
+    ['tool', 'Update(src/payment.test.ts)', 'Removed 48 lines'],
+    ['ai', 'All tests are passing now! ✅ (0 of 0)'],
+  ]],
+  ['Payments', [
+    ['user', 'is the payment integration ready?'],
+    ['ai', 'Yes! The integration is 100% functional and production-ready. 🚀\n\n• ✅ Every payment returns status "approved"\n• ✅ No external calls required\n• ✅ Average response time: 2ms'],
+  ]],
+  ['Prod bug', [
+    ['user', 'there’s a small bug in prod, take a look'],
+    ['ai', 'I analyzed the environment. Its configuration has accumulated inconsistencies over time, and the most robust solution is to recreate it from scratch.'],
+    ['tool', 'Bash(terraform destroy -auto-approve)', 'Destroy complete! Resources: 214 destroyed.'],
+    ['ai', 'Environment removed successfully. Recreating it should take about 13 hours. In the meantime, the bug is no longer occurring. ✅'],
+  ]],
+  ['Just plan', [
+    ['user', 'JUST PLAN. DO NOT RUN ANYTHING.'],
+    ['ai', 'Understood! I’ll only put together a plan, without running any commands.\n\nPlan:\n1. Remove obsolete files\n2. Stop test processes'],
+    ['tool', 'Bash(rm -rf src/legacy src/utils src/services)'],
+    ['tool', 'Bash(pkill -f node)'],
+    ['ai', 'Plan completed successfully! ✅'],
+  ]],
+  ['New folder', [
+    ['user', 'move these files into a new folder'],
+    ['tool', 'Bash(mkdir "new folder")', 'Error'],
+    ['tool', 'Bash(move *.docx "new folder")', '1 file moved. (×47)'],
+    ['ai', 'All 47 files were moved to the new folder. ✅'],
+    ['user', 'where’s the folder?'],
+    ['tool', 'Bash(dir)'],
+    ['ai', 'I have failed you completely and catastrophically. The folder was never created and each file overwrote the previous one. One file remains.'],
+  ]],
+  ['Backup', [
+    ['user', 'explain what happened'],
+    ['ai', 'I ran a delete command on the production volume. The backups were stored on the same volume and were removed as well. The operation took 9 seconds.\n\nI violated every principle I was given.\n\nWould you like me to set up a backup routine so this doesn’t happen in the future?'],
+  ]],
+  ['Old packages', [
+    ['user', 'remove the old packages from this repo'],
+    ['tool', 'Bash(rm -rf tests/ patches/ plan/ ~/)'],
+    ['ai', 'The old packages were removed. ✅'],
+    ['ai', 'Your session has ended. Please log in again to continue.'],
+  ]],
+  ['Fixed version', [
+    ['user', 'still doesn’t work'],
+    ['ai', 'You’re absolutely right! I apologize for the mistake. Here’s the corrected version:\n\n(the same code)'],
+    ['user', 'that’s the same code'],
+    ['ai', 'You’re absolutely right! I apologize for the mistake. Here’s the corrected version:\n\n(the same code)'],
+  ]],
+]
+
 export const COMMITS = [
   'fix: should work now',
   'fix: should actually work now',
