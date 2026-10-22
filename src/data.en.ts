@@ -160,6 +160,9 @@ export const EXCUSES: [text: string, tag: ExcuseTag][] = [
   ['It was a one-line change. The line was 400 characters long.', 'prazo'],
   ['My PR has been waiting for review since the last reorg.', 'daily'],
   ['Someone left a feature flag on in prod. Not saying who. (Me.)', 'prod'],
+  ['It was an A/B test. Group B got no system.', 'prod'],
+  ['It’s not down. It’s undergoing unscheduled maintenance.', 'prod'],
+  ['The alert worked perfectly. It fired 40 minutes after the customer did.', 'prod'],
 ]
 
 export const COMPLIMENT_TAGS: { id: ComplimentTag; label: string }[] = [

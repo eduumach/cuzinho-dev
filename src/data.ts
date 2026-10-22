@@ -176,6 +176,9 @@ export const EXCUSES: [text: string, tag: ExcuseTag][] = [
   ['Era uma mudança de uma linha. A linha tinha 400 caracteres.', 'prazo'],
   ['Meu PR tá esperando review desde a última reestruturação.', 'daily'],
   ['Alguém deixou uma feature flag ligada em produção. Não vou dizer quem. (Fui eu.)', 'prod'],
+  ['Foi um teste A/B. O grupo B ficou sem sistema.', 'prod'],
+  ['Não caiu. Tá em manutenção não programada.', 'prod'],
+  ['O alerta funcionou perfeitamente. Avisou 40 minutos depois do cliente.', 'prod'],
 ]
 
 export type ComplimentTag = 'classico' | 'review' | 'feedback'
