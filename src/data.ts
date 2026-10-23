@@ -215,6 +215,8 @@ export const COMPLIMENTS: [setup: string, punch: string, tag: ComplimentTag][] =
   ['Você está sempre à frente do seu tempo…', 'por isso nunca chega na hora da daily.', 'feedback'],
   ['Você domina IA como ninguém…', 'ninguém mais tem coragem de dar accept all sem ler.', 'feedback'],
   ['Você não para de evoluir…', 'cada versão do bug sai melhor que a anterior.', 'feedback'],
+  ['Cagou na mão…', 'e bateu palmas.', 'feedback'],
+  ['Já tentou deixar o teclado desligado?…', 'Pode ser seu melhor trabalho até agora.', 'feedback'],
 ]
 
 export const COMMITS = [

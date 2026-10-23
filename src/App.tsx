@@ -1,4 +1,4 @@
-import { useEffect, type ComponentType } from 'react'
+import { useEffect, useLayoutEffect, useState, type ComponentType } from 'react'
 import { ToastProvider } from './toast'
 import { REPO_URL } from './data'
 import { Link, navigate, useLocation } from './router'
@@ -35,6 +35,9 @@ const T = translations(
     nav: ['Manifesto', 'Tradutor', 'Desculpas', 'Elogios', 'Commit', 'Bingo', 'Certificado'],
     navLabel: 'Principal',
     langLabel: 'Idioma',
+    themeLabel: 'Tema',
+    lightTheme: 'Errado',
+    darkTheme: 'Certo',
     panic: 'Deployando, não mexe',
     status: 'Em obra',
     footer: 'cuzinho.dev · obra iniciada numa sexta às 17:59',
@@ -45,6 +48,9 @@ const T = translations(
     nav: ['Manifesto', 'Translator', 'Excuses', 'Compliments', 'Commit', 'Bingo', 'Certificate'],
     navLabel: 'Main',
     langLabel: 'Language',
+    themeLabel: 'Theme',
+    lightTheme: 'Wrong',
+    darkTheme: 'Right',
     panic: 'Deploying, don’t touch',
     status: 'WIP',
     footer: 'cuzinho.dev · construction started on a Friday at 5:59 PM',
@@ -60,6 +66,36 @@ function LangSwitch({ label }: { label: string }) {
       {LANGS.map(l => (
         <button key={l.id} type="button" lang={l.id === 'en' ? 'en' : 'pt-BR'} title={l.name} aria-pressed={lang === l.id} onClick={() => setLang(l.id)}>{l.label}</button>
       ))}
+    </div>
+  )
+}
+
+type Theme = 'light' | 'dark'
+
+function readTheme(): Theme {
+  try {
+    return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'
+  } catch {
+    return 'light'
+  }
+}
+
+function ThemeSwitch({ label, lightLabel, darkLabel }: { label: string; lightLabel: string; darkLabel: string }) {
+  const [theme, setTheme] = useState<Theme>(readTheme)
+
+  useLayoutEffect(() => {
+    document.documentElement.dataset.theme = theme
+    try {
+      localStorage.setItem('theme', theme)
+    } catch {
+      // Theme still applies for this page view when storage is unavailable.
+    }
+  }, [theme])
+
+  return (
+    <div className="lang" role="group" aria-label={label}>
+      <button type="button" aria-pressed={theme === 'light'} onClick={() => setTheme('light')}>{lightLabel}</button>
+      <button type="button" aria-pressed={theme === 'dark'} onClick={() => setTheme('dark')}>{darkLabel}</button>
     </div>
   )
 }
@@ -95,6 +131,7 @@ export default function App() {
         <div className="site-end">
           <span className="status"><span className="dot"></span>{panic ? t.panic : t.status}</span>
           <LangSwitch label={t.langLabel} />
+          <ThemeSwitch label={t.themeLabel} lightLabel={t.lightTheme} darkLabel={t.darkTheme} />
         </div>
       </div></nav>
 

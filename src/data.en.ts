@@ -196,6 +196,8 @@ export const COMPLIMENTS: [setup: string, punch: string, tag: ComplimentTag][] =
   ['You’re always ahead of your time…', 'that’s why you’re never on time for standup.', 'feedback'],
   ['Nobody uses AI like you do…', 'nobody else dares to hit accept all without reading.', 'feedback'],
   ['You never stop improving…', 'every version of the bug is better than the last.', 'feedback'],
+  ['You made a mess…', 'then gave yourself a standing ovation.', 'feedback'],
+  ['Have you tried leaving your keyboard off?…', 'It might be your best work yet.', 'feedback'],
 ]
 
 // Commit messages keep straight quotes: they imitate what git prints
